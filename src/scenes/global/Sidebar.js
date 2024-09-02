@@ -15,6 +15,7 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import Avatar from '@mui/material/Avatar';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -43,6 +44,9 @@ const SideBar = () => {
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
+
+  const userName = 'Terilo'
+  const avatarLetter = userName.charAt(0).toUpperCase()
 
   return (
     <Box
@@ -102,13 +106,24 @@ const SideBar = () => {
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
-                <img
+                {/* <img
                   alt="profile-user"
                   width="100px"
                   height="100px"
                   src={`../../assets/user.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
+                /> */}
+                <Avatar
+                  sx={{
+                    width: 100,
+                    height: 100,
+                    bgcolor: colors.greenAccent[500],
+                    fontSize: "40px",
+                    cursor: "pointer",
+                  }}
+                >
+                  {avatarLetter}
+                </Avatar>
               </Box>
               <Box textAlign="center">
                 <Typography
@@ -117,7 +132,7 @@ const SideBar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Mark
+                  Terilo
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   VP Admin
